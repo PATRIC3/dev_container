@@ -1,4 +1,8 @@
-singularity shell /vol/patric3/production/containers/p3-build-101.sif
+LATEST_SIF="$(ls -t /vol/patric3/production/containers/bvbrc-build-*.sif | head -n 1)"
+TMP="/tmp"
+[ $(hostname) != bio-gp1.mcs.anl.gov ] && TMP="/disks/tmp"
+
+singularity shell --bind $TMP:/tmp,/vol,/home,/homes $LATEST_SIF
 
 git clone https://github.com/olsonanl/dev_container
 cd dev_container
