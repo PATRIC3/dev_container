@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ -d modules ]] ; then
+if [ -d modules ] ; then
     cd modules
 fi
 
@@ -10,11 +10,16 @@ https://github.com/BV-BRC/app_service \
 https://github.com/PATRIC3/p3_cli \
 https://github.com/olsonanl/p3_code \
 https://github.com/PATRIC3/p3_core \
+https://github.com/PATRIC3/sra_import \
 https://github.com/olsonanl/p3_deployment \
 https://github.com/theseed/seed_core \
 https://github.com/theseed/seed_gjo \
 https://github.com/theseed/seed_rast \
 https://github.com/olsonanl/typecomp \
+https://github.com/PATRIC3/p3diffexp.git \
+https://github.com/PATRIC3/p3_solr_pipeline.git \
+https://github.com/PATRIC3/jira_submission.git \
+"--branch dev-slurm https://github.com/olsonanl/app_service" \
 https://github.com/olsonanl/Workspace ; do
 
     echo $i

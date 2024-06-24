@@ -15,8 +15,8 @@ MODULE_DIRS = $(foreach mod,$(MODULES),modules/$(mod))
 # deployments that eventually install into a location different than the build.
 #
 
-TARGET = /kb/deployment
-DEPLOY_RUNTIME = /kb/runtime
+TARGET ?= /kb/deployment
+DEPLOY_RUNTIME ?= /kb/runtime
 DEPLOY_TARGET := $(or $(KB_OVERRIDE_TOP),$(TARGET))
 
 all: build_modules
@@ -28,8 +28,7 @@ what:
 deploy-setup: deploy-dirs deploy-user-env
 
 deploy-dirs:
-	-mkdir $(TARGET)
-	-mkdir $(TARGET)/bin
+	-mkdir -p $(TARGET)/bin
 	-mkdir $(TARGET)/cgi-bin
 	-mkdir $(TARGET)/lib
 	-mkdir $(TARGET)/plbin
@@ -87,7 +86,7 @@ deploy-all: deploy-setup
 	done
 
 deploy-user-env:
-	-mkdir $(TARGET)
+	-mkdir -p $(TARGET)
 
 	dest=$(TARGET)/user-env.sh; \
 	q='"'; \
